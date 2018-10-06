@@ -34,14 +34,16 @@ public class TitleScreen extends AppCompatActivity {
 
     }
     public void openMainScreen(){
-//        EditText editName = findViewById(R.id.textInputLayout);
-//        String name = editName.getText().toString();
-//        EditText editWeight = findViewById(R.id.textInputLayout3);
-//        int weight = Integer.parseInt(editWeight.getText().toString());
+        EditText editName = findViewById(R.id.textInputLayout);
+        String name = editName.getText().toString();
+        //Get value from sex
+        EditText editWeight = findViewById(R.id.textInputLayout3);
+        int weight = Integer.parseInt(editWeight.getText().toString());
+
+        //Create Person Class
 
         Intent intent1 = new Intent(this, MainActivity.class);
-//        intent1.putExtra(EXTRA_NAME, name);
-//        intent1.putExtra(EXTRA_WEIGHT, weight);
+        //intent1.putExtra(); //Put person class in here
         startActivity(intent1);
     }
 }
