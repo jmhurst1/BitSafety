@@ -6,44 +6,72 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+
 
 public class TitleScreen extends AppCompatActivity {
 
     Button MainScreen;
-//    public static final String EXTRA_NAME = "com.example.application.example.EXTRA_NAME";
-//    public static final String EXTRA_SEX = "com.example.application.example.EXTRA_SEX";
-//    public static final String EXTRA_WEIGHT = "com.example.application.example.EXTRA_WEIGHT";
+    RadioGroup radioSexGroup;
+    RadioButton Male;
+    RadioButton returnedButton;
+    EditText editName;
+    EditText editWeight;
+    double weight;
+    int sex;
+    String name;
+    Bundle bundle;
+    Intent intent1;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_title_screen);
-        MainScreen=findViewById(R.id.button);
+        MainScreen = findViewById(R.id.button);
 
 
-
-
-        MainScreen.setOnClickListener(new View.OnClickListener(){
+        MainScreen.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
+            public void onClick(View v) {
                 openMainScreen();
             }
         });
 
 
     }
-    public void openMainScreen(){
-        EditText editName = findViewById(R.id.textInputLayout);
-        String name = editName.getText().toString();
-        //Get value from sex
-        EditText editWeight = findViewById(R.id.textInputLayout3);
-        int weight = Integer.parseInt(editWeight.getText().toString());
 
-        //Create Person Class
+    public void openMainScreen() {
+        editName = findViewById(R.id.plain_text_input);
+        name = editName.getText().toString();
 
-        Intent intent1 = new Intent(this, MainActivity.class);
-        //intent1.putExtra(); //Put person class in here
+        radioSexGroup = findViewById(R.id.radioGroup);
+        int selectedId = radioSexGroup.getCheckedRadioButtonId();
+        returnedButton = findViewById(selectedId);
+        Male = findViewById(R.id.radioMaleButton);
+        if (returnedButton == (Male)) {
+            sex = -1;
+        } else {
+            sex = 1;
+        }
+
+        editWeight = findViewById(R.id.plain_text_input2);
+        weight = (double)Integer.parseInt(editWeight.getText().toString());
+
+        intent1 = new Intent(TitleScreen.this, MainActivity.class);
+
+        bundle = new Bundle();
+        bundle.putString("name1", name);
+        bundle.putDouble("weight1", weight);
+        bundle.putInt("sex1", sex);
+        intent1.putExtras(bundle);
+//        intent1.putExtra("weight", weight);
+//        intent1.putExtra("name", name);
+//        intent1.putExtra("sex", sex);
         startActivity(intent1);
+
     }
+
 }
