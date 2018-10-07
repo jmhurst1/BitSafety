@@ -47,8 +47,7 @@
         android:id="@+id/imageButton2"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginLeft="26dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="140dp"
         app:layout_constraintStart_toEndOf="@+id/imageButton1"
         app:layout_constraintTop_toBottomOf="@+id/progressBar"
@@ -59,8 +58,9 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
         android:layout_marginTop="140dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageButton2"
         app:layout_constraintTop_toBottomOf="@+id/progressBar"
         app:srcCompat="@drawable/shotglass" />
@@ -83,5 +83,29 @@
         android:text="0"
         app:layout_constraintStart_toEndOf="@+id/bacLabel"
         app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="85dp"
+        android:layout_marginEnd="100dp"
+        android:text="Stuff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textTracker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="163dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="163dp"
+        android:text="0 Beer Cans, 0 Wine Glasses, 0 Shots"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton2" />
 
 </android.support.constraint.ConstraintLayout>

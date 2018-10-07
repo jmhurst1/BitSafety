@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     double weight;
     Bundle bundle;
     TextView bacText;
+    TextView namePlate;
+    TextView counter;
 
 
     @Override
@@ -35,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
         sex = bundle.getInt("sex1", -1);
         weight = bundle.getDouble("weight1", 140.0);
         p1 = new Person(name, sex, weight);
+        namePlate = findViewById(R.id.header);
+        namePlate.setText(name + "'s Alcohol Safety Calculator");
+        counter = findViewById(R.id.textTracker);
         prg=findViewById(R.id.progressBar);
         increase1=findViewById(R.id.imageButton1);
         increase2=findViewById(R.id.imageButton2);
@@ -49,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
                 p1.addDrinks(beer);
                 bacText.setText(String.valueOf(String.format(Locale.ENGLISH, "%.3f", p1.bac)));
                 prg.setProgress((int)(p1.bac*250));
+                p1.incrementBeer();
+                counter.setText(p1.beers+" Beer Cans, "+p1.wines+" Wine Glasses, "+p1.shots+" Shots");
             }
         });
         increase2.setOnClickListener(new View.OnClickListener(){
@@ -58,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
                 p1.addDrinks(wine);
                 bacText.setText(String.valueOf(String.format(Locale.ENGLISH, "%.3f", p1.bac)));
                 prg.setProgress((int)(p1.bac*250));
+                p1.incrementWine();
+                counter.setText(p1.beers+" Beer Cans, "+p1.wines+" Wine Glasses, "+p1.shots+" Shots");
             }
         });
         increase3.setOnClickListener(new View.OnClickListener(){
@@ -67,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
                 p1.addDrinks(liquor);
                 bacText.setText(String.valueOf(String.format(Locale.ENGLISH, "%.3f", p1.bac)));
                 prg.setProgress((int)(p1.bac*250));
+                p1.incrementShot();
+                counter.setText(p1.beers+" Beer Cans, "+p1.wines+" Wine Glasses, "+p1.shots+" Shots");
             }
         });
         title.setOnClickListener(new View.OnClickListener(){

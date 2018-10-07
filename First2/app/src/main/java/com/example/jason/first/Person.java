@@ -11,6 +11,9 @@ public class Person{
     private double weight;
     private ArrayList<Drink> drinks;
     private int expval;
+    public int beers;
+    public int wines;
+    public int shots;
     public double bac;
 //    private Instant start;
 
@@ -21,6 +24,9 @@ public class Person{
         this.drinks = new ArrayList<Drink>();
         this.expval = 0;
         this.bac = 0;
+        this.beers = 0;
+        this.wines = 0;
+        this.shots = 0;
     }
 
     public void updatebac() {
@@ -88,5 +94,15 @@ public class Person{
         } else {
             return "Puke";
         }
+    }
+
+    public void incrementBeer(){
+        beers++;
+    }
+    public void incrementWine(){
+        wines++;
+    }
+    public void incrementShot(){
+        shots++;
     }
 }
